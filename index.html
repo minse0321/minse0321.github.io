@@ -1,9 +1,8 @@
-<!doctype html>
-<html lang="ko">
-<head>
+<!DOCTYPE html>
+<html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>최민서 Minseo Choi</title>
+<title>Minseo Choi</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -205,7 +204,11 @@ main>section{padding:88px 0 0}
 .lhero .eyebrow{display:inline-block;background:var(--lemon);border:2px solid var(--navy);border-radius:999px;padding:3px 14px;font-weight:800;font-size:14px;transform:rotate(-2deg)}
 .lhero h1{font-size:clamp(40px,8vw,96px);font-weight:900;letter-spacing:-.05em;line-height:1.02;margin:16px 0}
 .lhero p{max-width:640px;font-size:18px;color:var(--navy-70);margin:0}
-.lsec{display:grid;grid-template-columns:220px 1fr;gap:36px;border-top:2px solid var(--navy);padding:44px 0;margin-top:44px;scroll-margin-top:80px}
+.ltabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.ltabs a{text-decoration:none;font-weight:700;font-size:14px;border:2px solid var(--navy);border-radius:999px;padding:6px 16px;background:var(--white);transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.ltabs a:hover{transform:translateY(-3px) rotate(-2deg);background:var(--ice)}
+.ltabs a.on{background:var(--navy);color:var(--lemon)}
+.lsec{display:grid;grid-template-columns:220px 1fr;gap:36px;border-top:2px solid var(--navy);padding:44px 0 0;margin-top:36px;scroll-margin-top:80px}
 .lsec .side .no{display:inline-flex;width:56px;height:56px;border-radius:50%;border:2px solid var(--navy);background:var(--glacier);align-items:center;justify-content:center;font-weight:900;font-size:20px}
 .lsec:nth-of-type(even) .side .no{background:var(--lemon)}
 .lsec .side h2{font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1.15;margin:14px 0 2px}
@@ -259,34 +262,34 @@ tr:nth-child(even) td{background:var(--ice)}
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#/"><b data-i="logo"></b><span></span></a>
+    <a class="logo" href="#/"><b data-i="logo">강동구흰수염고래</b><span></span></a>
     <nav class="links">
-      <a href="#works" data-i="nWorks"></a>
-      <a href="#skills" data-i="nSkills"></a>
-      <a href="#about" data-i="nCareer"></a>
+      <a href="#works" data-i="nWorks">프로젝트</a>
+      <a href="#skills" data-i="nSkills">기술</a>
+      <a href="#about" data-i="nCareer">이력서 밖</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-l="ko">KO</button>
+      <button type="button" data-l="ko" class="on">KO</button>
       <button type="button" data-l="en">EN</button>
     </div>
-    <a class="cta" href="#contact" data-i="nContact"></a>
+    <a class="cta" href="#contact" data-i="nContact">연락하기 →</a>
   </div>
 </header>
 
 <main id="home">
   <div class="wrap hero">
-    <span class="hello" data-i="hello"></span>
-    <h1 class="name" data-i="name"></h1>
+    <span class="hello" data-i="hello">안녕하세요 👋</span>
+    <h1 class="name" data-i="name">최민서<span class="dot">.</span></h1>
     <div class="hero-row">
       <div class="meta">
-        <div><small>Based in</small><b data-i="based"></b></div>
-        <div><small>Current</small><b data-i="current"></b></div>
-        <div><small>Focus</small><b data-i="focus"></b></div>
+        <div><small>Based in</small><b data-i="based">서울, 대한민국</b></div>
+        <div><small>Current</small><b data-i="current">SCM·데이터 분석 직무 찾는 중</b></div>
+        <div><small>Focus</small><b data-i="focus">재고, 배송, 물류 데이터</b></div>
       </div>
       <div>
-        <p class="statement" data-i="statement"></p>
-        <p class="tagline" data-i="tagline"></p>
-        <p class="intro" data-i="intro"></p>
+        <p class="statement" data-i="statement">물건의 이동에서 <mark>비즈니스의 흐름</mark>을 찾습니다.</p>
+        <p class="tagline" data-i="tagline">Interested in Supply Chain, Operations &amp; Business.</p>
+        <p class="intro" data-i="intro">물류와 유통을 공부하고, 경영학을 통해 비즈니스 전반을 이해해 가고 있습니다. 다양한 경험과 프로젝트를 통해 세상이 움직이는 방식을 탐구합니다.</p>
       </div>
     </div>
 
@@ -301,72 +304,72 @@ tr:nth-child(even) td{background:var(--ice)}
       </div>
       <div class="photo" id="photo">
         <img src="photo.jpg" alt="최민서 사진" onerror="this.parentNode.classList.add('empty')">
-        <div class="ph"><div class="mono">MC</div><p data-i="photoHint"></p></div>
+        <div class="ph"><div class="mono">MC</div><p data-i="photoHint">Coming Soon...</p></div>
       </div>
     </div>
   </div>
 
-  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"><span>Python</span><i>✦</i><span>SQL</span><i>✦</i><span>Tableau</span><i>✦</i><span>재고 분석</span><i>✦</i><span>t 검정</span><i>✦</i><span>SCM</span><i>✦</i><span>pandas</span><i>✦</i><span>Window Functions</span><i>✦</i><span>물류 데이터</span><i>✦</i><span>Python</span><i>✦</i><span>SQL</span><i>✦</i><span>Tableau</span><i>✦</i><span>재고 분석</span><i>✦</i><span>t 검정</span><i>✦</i><span>SCM</span><i>✦</i><span>pandas</span><i>✦</i><span>Window Functions</span><i>✦</i><span>물류 데이터</span><i>✦</i></div></div>
 
   <section id="works">
     <div class="wrap">
-      <div class="sec-head"><h2 data-i="worksTitle"></h2><p data-i="worksSub"></p></div>
+      <div class="sec-head"><h2 data-i="worksTitle">Selected Works</h2><p data-i="worksSub">제일 자신 있는 두 개예요. 질문을 직접 세우고 끝까지 확인하려고 했던 프로젝트예요.</p></div>
       <div class="main-works">
         <a class="work ds" href="#/dead-stock">
           <div class="art"><div class="circ c1"></div><div class="circ c2"></div><div class="arrow">→</div>
-            <div class="big">$74,918<small data-i="dsStat"></small></div></div>
-          <div class="body"><span class="hook" data-i="dsHook"></span><h3>Grocery Inventory Dead Stock Analysis</h3><p data-i="dsCard"></p>
-            <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Tableau</span><span class="tag warn" data-i="dsBadge"></span></div></div>
+            <div class="big">$74,918<small data-i="dsStat">죽은 재고에 묶인 자본 (989개 중 192개)</small></div></div>
+          <div class="body"><span class="hook" data-i="dsHook">#안 팔리는 재고에 돈이 얼마나 묶여 있을까요?</span><h3>Grocery Inventory Dead Stock Analysis</h3><p data-i="dsCard">안 팔리고 쌓여 있는 식료품 재고를 찾고, 거기 묶인 돈이 얼마인지 계산했어요. 죽은 재고 기준은 제가 직접 정했어요.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Tableau</span><span class="tag warn" data-i="dsBadge">교육용 데이터</span></div></div>
         </a>
         <a class="work ol" href="#/olist">
           <div class="art"><div class="circ c1"></div><div class="circ c2"></div><div class="arrow">→</div>
-            <div class="big">4.21 → 2.56<small data-i="olStat"></small></div></div>
-          <div class="body"><span class="hook" data-i="olHook"></span><h3>Olist Brazilian E-Commerce Analysis</h3><p data-i="olCard"></p>
-            <div class="tags"><span class="tag">Python</span><span class="tag">SciPy</span><span class="tag">Tableau</span><span class="tag warn" data-i="olBadge"></span></div></div>
+            <div class="big">4.21 → 2.56<small data-i="olStat">제때 도착 vs 늦은 배송, 평균 리뷰 점수</small></div></div>
+          <div class="body"><span class="hook" data-i="olHook">#배송이 늦으면 별점도 깎일까요?</span><h3>Olist Brazilian E-Commerce Analysis</h3><p data-i="olCard">배송이 늦으면 리뷰 점수도 떨어질까? 차트로 끝내지 않고 통계 검정까지 해 봤어요.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">SciPy</span><span class="tag">Tableau</span><span class="tag warn" data-i="olBadge">주문 항목 단위, 재계산 예정</span></div></div>
         </a>
       </div>
-      <p class="label" data-i="moreLabel"></p>
-      <p class="muted" style="margin:4px 0 0" data-i="moreSub"></p>
+      <p class="label" data-i="moreLabel">More Projects</p>
+      <p class="muted" style="margin:4px 0 0" data-i="moreSub">궁금한 걸 하나씩 파 본 프로젝트들이에요.</p>
       <div class="sub-works">
-        <a class="mini" href="#/netflix"><h4 data-i="nfHook"></h4><small class="pname">Netflix Content Analysis</small><p data-i="nfCard"></p><div class="tags"><span class="tag warn" data-i="nfBadge"></span></div></a>
-        <a class="mini" href="#/ohtani"><h4 data-i="ohHook"></h4><small class="pname">Ohtani Career Batting</small><p data-i="ohCard"></p><div class="tags"><span class="tag warn" data-i="ohBadge"></span></div></a>
-        <a class="mini" href="#/wavelength"><h4 data-i="wvHook"></h4><small class="pname">Wavelength User Behavior</small><p data-i="wvCard"></p><div class="tags"><span class="tag warn" data-i="wvBadge"></span></div></a>
+        <a class="mini" href="#/netflix"><h4 data-i="nfHook">#평점 높은 장르는 따로 있을까요?</h4><small class="pname">Netflix Content Analysis</small><p data-i="nfCard">장르, 언어, 인기도, 연도별 작품 수를 살펴봤어요. 검정 없이 기술 통계만 썼어요.</p><div class="tags"><span class="tag warn" data-i="nfBadge">기술 통계</span></div></a>
+        <a class="mini" href="#/ohtani"><h4 data-i="ohHook">#오타니는 왜 이렇게 잘할까요?</h4><small class="pname">Ohtani Career Batting</small><p data-i="ohCard">오타니의 2018~2025 정규 시즌 타격을 SQL 윈도우 함수로 시즌별로 비교했어요.</p><div class="tags"><span class="tag warn" data-i="ohBadge">일부 수치 확인 중</span></div></a>
+        <a class="mini" href="#/wavelength"><h4 data-i="wvHook">#유저는 언제 떠날까요?</h4><small class="pname">Wavelength User Behavior</small><p data-i="wvCard">가상의 음악 앱 사용자 로그를 직접 만들어서 리텐션이랑 퍼널 분석을 연습했어요.</p><div class="tags"><span class="tag warn" data-i="wvBadge">시뮬레이션 데이터</span></div></a>
       </div>
     </div>
   </section>
 
   <section id="skills">
     <div class="wrap">
-      <div class="sec-head"><h2 data-i="skillsTitle"></h2><p data-i="skillsSub"></p></div>
+      <div class="sec-head"><h2 data-i="skillsTitle">Skills</h2><p data-i="skillsSub">주로 이 도구들로 일해요. 숙련도는 따로 적지 않았어요.</p></div>
       <div class="rows">
-        <div class="rowi"><span class="no">[01]</span><h3 data-i="sk1"></h3><div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span><span class="chip">seaborn</span><span class="chip">SQL (SQLite)</span><span class="chip">Window Functions</span></div></div>
-        <div class="rowi"><span class="no">[02]</span><h3 data-i="sk2"></h3><div class="chips"><span class="chip">Tableau Public</span><span class="chip">SPSS</span><span class="chip">Excel</span><span class="chip">PowerPoint</span><span class="chip">Git/GitHub</span></div></div>
-        <div class="rowi"><span class="no">[03]</span><h3 data-i="sk3"></h3><div class="chips"><span class="chip" data-i="ga4"></span><span class="chip">Claude</span><span class="chip">Gemini</span></div></div>
+        <div class="rowi"><span class="no">[01]</span><h3 data-i="sk1">분석과 코드</h3><div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span><span class="chip">seaborn</span><span class="chip">SQL (SQLite)</span><span class="chip">Window Functions</span></div></div>
+        <div class="rowi"><span class="no">[02]</span><h3 data-i="sk2">시각화와 도구</h3><div class="chips"><span class="chip">Tableau Public</span><span class="chip">SPSS</span><span class="chip">Excel</span><span class="chip">PowerPoint</span><span class="chip">Git/GitHub</span></div></div>
+        <div class="rowi"><span class="no">[03]</span><h3 data-i="sk3">인증과 기타</h3><div class="chips"><span class="chip" data-i="ga4">GA4 인증 (2026.06)</span><span class="chip">Claude</span><span class="chip">Gemini</span></div></div>
       </div>
     </div>
   </section>
 
   <section id="about">
     <div class="wrap">
-      <div class="sec-head"><h2 data-i="careerTitle"></h2><p data-i="careerSub"></p></div>
-      <div class="cgrid" id="cgrid"></div>
-      <p style="margin:24px 0 0"><a class="dash" href="#/life" data-i="lifeMore" style="margin-top:0"></a></p>
+      <div class="sec-head"><h2 data-i="careerTitle">이력서에는 없는 이야기</h2><p data-i="careerSub">일과 공부 외에도 제가 좋아하는 것들, 시간을 보내는 방식, 그리고 일상에서 발견하는 작은 즐거움들을 소개합니다.</p></div>
+      <div class="cgrid" id="cgrid"><a class="cbox" href="#/life/music"><small>01 Music</small><b>음악</b><p>재즈와 R&amp;B를 즐겨 듣습니다. Quincy Jones, Robert Glasper, The Weeknd</p></a><a class="cbox hl" href="#/life/film"><small>02 Movies &amp; Series</small><b>영화와 드라마</b><p>Christopher Nolan의 작품과 Hans Zimmer의 음악을 좋아합니다</p></a><a class="cbox" href="#/life/fitness"><small>03 Fitness</small><b>운동</b><p>러닝과 웨이트 트레이닝</p></a><a class="cbox" href="#/life/photo"><small>04 Photography</small><b>사진</b><p>디지털은 Nikon Z50 II, 필름은 Minolta X-700</p></a><a class="cbox todo" href="#/life/travel"><small>05 Travel</small><b>여행</b><p>Coming Soon...</p></a><a class="cbox todo" href="#/life/daily"><small>06 Everyday Life</small><b>일상</b><p>Coming Soon...</p></a></div>
+      <p style="margin:24px 0 0"><a class="dash" href="#/life" data-i="lifeMore" style="margin-top:0">전체 이야기 보기 →</a></p>
     </div>
   </section>
 
   <footer class="contact" id="contact">
     <div class="blob k1"></div><div class="blob k2"></div>
     <div class="wrap">
-      <h2 data-i="contactTitle"></h2>
-      <p class="sub" data-i="contactSub"></p>
+      <h2 data-i="contactTitle">같이 <em>이야기</em><br>나눠요</h2>
+      <p class="sub" data-i="contactSub">데이터, 물류, 재고 이야기라면 언제든 좋아요.</p>
       <div class="clinks">
         <a class="clink" href="mailto:msc0321@naver.com"><span><small>Email</small><b>msc0321@naver.com</b></span><span class="go">↗</span></a>
-        <a class="clink" id="tel" href="tel:+821049989862"><span><small>Phone</small><b data-i="phone"></b></span><span class="go">↗</span></a>
+        <a class="clink" id="tel" href="tel:+821049989862"><span><small>Phone</small><b data-i="phone">010-4998-9862</b></span><span class="go">↗</span></a>
         <a class="clink" href="https://github.com/minse0321" target="_blank" rel="noopener"><span><small>GitHub</small><b>github.com/minse0321</b></span><span class="go">↗</span></a>
         <a class="clink" href="https://www.linkedin.com/in/minseo-choi-min" target="_blank" rel="noopener"><span><small>LinkedIn</small><b>linkedin.com/in/minseo-choi-min</b></span><span class="go">↗</span></a>
         <a class="clink" href="https://public.tableau.com/app/profile/minseo.choi4768/vizzes" target="_blank" rel="noopener" style="grid-column:1/-1"><span><small>Tableau Public</small><b>public.tableau.com/app/profile/minseo.choi4768</b></span><span class="go">↗</span></a>
       </div>
-      <div class="foot"><span>© 2026 Minseo Choi</span><span data-i="footNote"></span></div>
+      <div class="foot"><span>© 2026 Minseo Choi</span><span data-i="footNote">수치는 각 프로젝트 정리 원본의 값을 그대로 옮겼어요.</span></div>
     </div>
   </footer>
 </main>
@@ -381,7 +384,7 @@ ko:{
  based:"서울, 대한민국",current:"SCM·데이터 분석 직무 찾는 중",focus:"재고, 배송, 물류 데이터",
  statement:"물건의 이동에서 <mark>비즈니스의 흐름</mark>을 찾습니다.",tagline:"Interested in Supply Chain, Operations &amp; Business.",
  intro:"물류와 유통을 공부하고, 경영학을 통해 비즈니스 전반을 이해해 가고 있습니다. 다양한 경험과 프로젝트를 통해 세상이 움직이는 방식을 탐구합니다.",
- photoHint:"사진은 이 폴더에 photo.jpg로 넣으면 여기에 나와요",
+ photoHint:"Coming Soon...",
  marquee:["Python","SQL","Tableau","재고 분석","t 검정","SCM","pandas","Window Functions","물류 데이터"],
  dsHook:"#안 팔리는 재고에 돈이 얼마나 묶여 있을까요?",olHook:"#배송이 늦으면 별점도 깎일까요?",nfHook:"#평점 높은 장르는 따로 있을까요?",ohHook:"#오타니는 왜 이렇게 잘할까요?",wvHook:"#유저는 언제 떠날까요?",
  worksTitle:"Selected Works",worksSub:"제일 자신 있는 두 개예요. 질문을 직접 세우고 끝까지 확인하려고 했던 프로젝트예요.",
@@ -395,11 +398,11 @@ ko:{
  sk1:"분석과 코드",sk2:"시각화와 도구",sk3:"인증과 기타",ga4:"GA4 인증 (2026.06)",
  careerTitle:"이력서에는 없는 이야기",careerSub:"일과 공부 외에도 제가 좋아하는 것들, 시간을 보내는 방식, 그리고 일상에서 발견하는 작은 즐거움들을 소개합니다.",
  career:[["01 Music","음악","재즈와 R&amp;B를 즐겨 듣습니다. Quincy Jones, Robert Glasper, The Weeknd",0,"music"],["02 Movies &amp; Series","영화와 드라마","Christopher Nolan의 작품과 Hans Zimmer의 음악을 좋아합니다",1,"film"],["03 Fitness","운동","러닝과 웨이트 트레이닝",0,"fitness"],
-   ["04 Photography","사진","디지털은 Nikon Z50 II, 필름은 Minolta X-700",0,"photo"],["05 Travel","여행","Coming Soon",2,"travel"],["06 Everyday Life","일상","Coming Soon",2,"daily"]],
+   ["04 Photography","사진","디지털은 Nikon Z50 II, 필름은 Minolta X-700",0,"photo"],["05 Travel","여행","Coming Soon...",2,"travel"],["06 Everyday Life","일상","Coming Soon...",2,"daily"]],
  lifeMore:"전체 이야기 보기 →",
  contactTitle:"같이 <em>이야기</em><br>나눠요",contactSub:"데이터, 물류, 재고 이야기라면 언제든 좋아요.",phone:"010-4998-9862",
  footNote:"수치는 각 프로젝트 정리 원본의 값을 그대로 옮겼어요.",
- photoSlot:"사진 자리",back:"← 홈으로",dash:"Tableau 대시보드 보기 ↗",q:"질문",a:"접근",r:"결과",l:"한계",note:"참고",sug:"제안 (검증 전)"
+ photoSlot:"Coming Soon...",back:"← 홈으로",dash:"Tableau 대시보드 보기 ↗",q:"질문",a:"접근",r:"결과",l:"한계",note:"참고",sug:"제안 (검증 전)"
 },
 en:{
  nWorks:"Works",nSkills:"Skills",nCareer:"Beyond the Resume",nContact:"Contact →",
@@ -407,7 +410,7 @@ en:{
  based:"Seoul, South Korea",current:"Looking for SCM and data analyst roles",focus:"Inventory, delivery, logistics data",
  statement:"Understanding business through <mark>the movement of goods.</mark>",tagline:"Interested in Supply Chain, Operations &amp; Business.",
  intro:"I studied logistics and distribution, and I am now building a broader understanding of business through business administration. Through different experiences and projects, I explore how the world moves.",
- photoHint:"Add photo.jpg to this folder and it shows up here",
+ photoHint:"Coming Soon...",
  marquee:["Python","SQL","Tableau","Inventory Analysis","t-test","SCM","pandas","Window Functions","Logistics Data"],
  dsHook:"#How much money is stuck in unsold stock?",olHook:"#Do late deliveries cost review stars?",nfHook:"#Do some genres just rate higher?",ohHook:"#Why is Ohtani this good?",wvHook:"#When do users leave?",
  worksTitle:"Selected Works",worksSub:"My two strongest projects. I set the question myself and tried to check it all the way through.",
@@ -421,11 +424,11 @@ en:{
  sk1:"Analysis and Code",sk2:"Visualization and Tools",sk3:"Certifications and More",ga4:"GA4 Certified (2026.06)",
  careerTitle:"Life Beyond the Resume",careerSub:"Beyond work and studies, here's a little about the things I enjoy, the way I spend my time, and the moments that make up my everyday life.",
  career:[["01 Music","Music","I enjoy listening to Jazz and R&amp;B. Quincy Jones, Robert Glasper, The Weeknd",0,"music"],["02 Movies &amp; Series","Movies &amp; Series","Drawn to Christopher Nolan's films and Hans Zimmer's soundtracks",1,"film"],["03 Fitness","Fitness","Running and weight training",0,"fitness"],
-   ["04 Photography","Photography","Nikon Z50 II for digital, Minolta X-700 for film",0,"photo"],["05 Travel","Travel","Coming Soon",2,"travel"],["06 Everyday Life","Everyday Life","Coming Soon",2,"daily"]],
+   ["04 Photography","Photography","Nikon Z50 II for digital, Minolta X-700 for film",0,"photo"],["05 Travel","Travel","Coming Soon...",2,"travel"],["06 Everyday Life","Everyday Life","Coming Soon...",2,"daily"]],
  lifeMore:"Read the full story →",
  contactTitle:"Let's <em>talk</em>",contactSub:"Happy to chat about data, logistics or inventory anytime.",phone:"+82 10-4998-9862",
  footNote:"All figures are copied as they are from each project's source notes.",
- photoSlot:"Photo slot",back:"← Home",dash:"Open Tableau dashboard ↗",q:"Question",a:"Approach",r:"Results",l:"Limitations",note:"Note",sug:"Suggestion (not validated)"
+ photoSlot:"Coming Soon...",back:"← Home",dash:"Open Tableau dashboard ↗",q:"Question",a:"Approach",r:"Results",l:"Limitations",note:"Note",sug:"Suggestion (not validated)"
 }};
 
 var P={
@@ -523,22 +526,27 @@ en:{eyebrow:"이력서에는 없는 이야기",title:"Life Beyond<br>the Resume"
 function slug(x){return x.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function chips(a){return '<div class="chips">'+a.map(function(x){return '<span class="chip">'+x+'</span>'}).join("")+'</div>'}
 function posters(a){return '<div class="posters">'+a.map(function(x){return '<div class="poster">'+x+'<img src="images/posters/'+slug(x)+'.jpg" alt="'+x+'" onerror="this.remove()"></div>'}).join("")+'</div>'}
-function slot(src){return '<div class="slot"><img src="'+src+'" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">'+src.replace("images/","")+'</div></div>'}
+function slot(src){return '<div class="slot"><img src="'+src+'" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">Coming Soon...</div></div>'}
 function shots(pre){var h="";for(var i=1;i<=5;i++)h+=slot("images/photos/"+pre+"-"+i+".jpg");return '<div class="shots">'+h+'</div>'}
 function lsec(id,no,h,body){return '<section class="lsec" id="life-'+id+'"><div class="side"><span class="no">'+no+'</span><h2>'+h[0]+'</h2><small>'+h[1]+'</small></div><div class="main"><p>'+h[2]+'</p>'+body+'</div></section>'}
-function renderLife(){
+function renderLife(sec){
   var l=L[lang],t=T[lang],g=function(x){return '<div class="glabel">'+x+'</div>'};
+  var soon='<span class="soon">Coming Soon...</span>';
+  var S={
+   music:lsec("music","01",l.music,g("Jazz")+chips(LC.jazz)+g("R&amp;B")+chips(LC.rnb)+g(l.repeat)+
+     '<div class="album"><div class="cover slot"><img src="images/album.jpg" alt="" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">Coming Soon...</div></div><div><span>Justin Bieber</span><b>SWAG: LIVE FROM COACHELLA (WEEKEND II)</b><p>'+l.repeatP+'</p></div></div>'),
+   film:lsec("film","02",l.film,g(l.dc)+'<div class="people"><div class="person"><small>'+l.dir+'</small><b>Christopher Nolan</b></div><div class="person"><small>'+l.comp+'</small><b>Hans Zimmer</b></div></div>'+
+     g(l.fm)+posters(LC.movies)+g(l.fs)+posters(LC.series)+g(l.rw)+chips(LC.rewatch)),
+   fitness:lsec("fitness","03",l.fit,'<div class="fit"><div><i>🏃</i>'+l.run+'</div><div><i>🏋️</i>'+l.wt+'</div></div>'),
+   photo:lsec("photo","04",l.photo,'<div class="cam"><h3><small>'+l.dig+'</small>Nikon Z50 II</h3><p>'+l.digP+'</p>'+g(l.shots)+shots("digital")+'</div>'+
+     '<div class="cam film"><h3><small>'+l.flm+'</small>Minolta X-700</h3><p>'+l.flmP+'</p>'+g(l.shots)+shots("film")+'</div>'),
+   travel:lsec("travel","05",l.travel,"").replace('<div class="main">','<div class="main">'+soon),
+   daily:lsec("daily","06",l.daily,"").replace('<div class="main">','<div class="main">'+soon)};
+  var order=["music","film","fitness","photo","travel","daily"], one=sec&&S[sec];
+  var tabs='<div class="ltabs"><a href="#/life"'+(one?'':' class="on"')+'>All</a>'+order.map(function(k){return '<a href="#/life/'+k+'"'+(k===sec?' class="on"':'')+'>'+l[k==="fitness"?"fit":k][0]+'</a>'}).join("")+'</div>';
   document.getElementById("detail").innerHTML='<div class="detail"><a class="back" href="#about">'+t.back+'</a>'+
-   '<div class="lhero"><span class="eyebrow">'+l.eyebrow+'</span><h1>'+l.title+'</h1><p>'+l.intro+'</p></div>'+
-   lsec("music","01",l.music,g("Jazz")+chips(LC.jazz)+g("R&amp;B")+chips(LC.rnb)+g(l.repeat)+
-     '<div class="album"><div class="cover slot"><img src="images/album.jpg" alt="" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">album.jpg</div></div><div><span>Justin Bieber</span><b>SWAG: LIVE FROM COACHELLA (WEEKEND II)</b><p>'+l.repeatP+'</p></div></div>')+
-   lsec("film","02",l.film,g(l.dc)+'<div class="people"><div class="person"><small>'+l.dir+'</small><b>Christopher Nolan</b></div><div class="person"><small>'+l.comp+'</small><b>Hans Zimmer</b></div></div>'+
-     g(l.fm)+posters(LC.movies)+g(l.fs)+posters(LC.series)+g(l.rw)+chips(LC.rewatch))+
-   lsec("fitness","03",l.fit,'<div class="fit"><div><i>🏃</i>'+l.run+'</div><div><i>🏋️</i>'+l.wt+'</div></div>')+
-   lsec("photo","04",l.photo,'<div class="cam"><h3><small>'+l.dig+'</small>Nikon Z50 II</h3><p>'+l.digP+'</p>'+g(l.shots)+shots("digital")+'</div>'+
-     '<div class="cam film"><h3><small>'+l.flm+'</small>Minolta X-700</h3><p>'+l.flmP+'</p>'+g(l.shots)+shots("film")+'</div>')+
-   lsec("travel","05",l.travel,"").replace('<div class="main">','<div class="main"><span class="soon">Coming Soon</span>')+
-   lsec("daily","06",l.daily,"").replace('<div class="main">','<div class="main"><span class="soon">Coming Soon</span>')+
+   '<div class="lhero"><span class="eyebrow">'+l.eyebrow+'</span><h1>'+l.title+'</h1><p>'+l.intro+'</p></div>'+tabs+
+   (one?S[sec]:order.map(function(k){return S[k]}).join(""))+
    '<p style="margin:40px 0 80px"><a class="back" href="#about">'+t.back+'</a></p></div>';
 }
 var lang="ko";
@@ -553,7 +561,7 @@ function apply(){
   var m=t.marquee.map(function(w){return "<span>"+w+"</span><i>✦</i>"}).join("");
   document.getElementById("marquee").innerHTML=m+m;
   document.getElementById("cgrid").innerHTML=t.career.map(function(c){return '<a class="cbox'+(c[3]===1?' hl':c[3]===2?' todo':'')+'" href="#/life/'+c[4]+'"><small>'+c[0]+'</small><b>'+c[1]+'</b><p>'+c[2]+'</p></a>'}).join("");
-  document.title=lang==="ko"?"최민서 Minseo Choi":"Minseo Choi";
+  document.title="Minseo Choi";
   route(true);
 }
 function renderDetail(id){
@@ -563,7 +571,7 @@ function renderDetail(id){
    '<div class="detail"><a class="back" href="#works">'+t.back+'</a>'+
    '<div class="dhead '+p.c+'"><div><span class="hook">'+t[p.hk]+'</span><h1>'+p.title+'</h1><div class="stack">'+p.stack+'</div>'+
    '<a class="dash" href="'+p.link+'" target="_blank" rel="noopener">'+t.dash+'</a></div>'+
-   '<div class="pshot"><img src="'+p.img+'" alt="'+p.title+'" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph"><b>'+t.photoSlot+'</b>'+p.img+'</div></div></div>'+
+   '<div class="pshot"><img src="'+p.img+'" alt="'+p.title+'" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph"><b>'+t.photoSlot+'</b></div></div></div>'+
    '<div class="note"><b>'+t.note+'</b><br>'+d.note+'</div>'+
    '<div class="steps">'+
    [[t.q,d.q],[t.a,d.a],[t.r,d.r],[t.l,'<ol>'+lim+'</ol>']].map(function(x,n){return '<section class="step"><h2 class="tit"><span>'+(n+1)+'</span>'+x[0]+'</h2><div class="cont">'+x[1]+'</div></section>'}).join("")+
@@ -572,8 +580,7 @@ function renderDetail(id){
 function route(keep){
   var m=location.hash.match(/^#\/(.+)$/);
   var home=document.getElementById("home"), det=document.getElementById("detail");
-  if(m&&m[1].indexOf("life")===0){renderLife();home.classList.add("hidden");det.classList.remove("hidden");
-    if(!keep){var sec=m[1].split("/")[1],e=sec&&document.getElementById("life-"+sec); if(e) e.scrollIntoView(); else window.scrollTo(0,0);}}
+  if(m&&m[1].indexOf("life")===0){renderLife(m[1].split("/")[1]);home.classList.add("hidden");det.classList.remove("hidden");if(!keep)window.scrollTo(0,0);}
   else if(m&&P[m[1]]){renderDetail(m[1]);home.classList.add("hidden");det.classList.remove("hidden");if(!keep)window.scrollTo(0,0);}
   else{det.classList.add("hidden");home.classList.remove("hidden");
     if(keep) return;
@@ -585,5 +592,6 @@ document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener
 window.addEventListener("hashchange",function(){route(false)});
 apply(); route(false);
 </script>
-</body>
-</html>
+
+
+</body></html>
