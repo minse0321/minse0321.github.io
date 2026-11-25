@@ -216,6 +216,12 @@ main>section{padding:88px 0 0}
 .lsec .main{min-width:0}
 .lsec .main>p{font-size:17px;margin:0 0 20px;max-width:680px}
 .glabel{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-70);margin:22px 0 10px}
+.albums{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-top:12px;max-width:680px}
+.alb b{display:block;font-size:14px;line-height:1.3;margin-top:8px}.alb span{font-size:13px;color:var(--navy-70)}
+.acov{aspect-ratio:1;border:2px solid var(--navy);border-radius:12px;overflow:hidden;background:var(--ice);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.acov img{width:100%;height:100%;object-fit:cover;display:block}
+.alb:hover .acov{transform:translateY(-5px) rotate(-2deg)}
+@media (max-width:560px){.albums{grid-template-columns:repeat(2,1fr)}}
 .album{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;border:2px solid var(--navy);border-radius:24px;padding:18px;background:var(--lemon);box-shadow:6px 6px 0 var(--navy);max-width:680px}
 .album .cover{aspect-ratio:1;border:2px solid var(--navy);border-radius:16px;overflow:hidden;position:relative;background:var(--navy);animation:bob 5s ease-in-out infinite;--r:-2deg}
 .album b{display:block;font-size:19px;line-height:1.3}.album span{font-weight:700;font-size:14px}.album p{margin:8px 0 0;font-size:15px}
@@ -316,7 +322,7 @@ tr:nth-child(even) td{background:var(--ice)}
         <a class="bubble b5" href="#/wavelength">Wavelength ♪</a>
       </div>
       <div class="photo" id="photo">
-        <img src="photo.jpg" alt="최민서 사진" onerror="this.parentNode.classList.add('empty')">
+        <img src="photo.jpg?v=20261125" alt="최민서 사진" onerror="this.parentNode.classList.add('empty')">
         <div class="ph"><div class="mono">MC</div><p data-i="photoHint">Coming Soon...</p></div>
       </div>
     </div>
@@ -510,6 +516,8 @@ var P={
 
 var LC={jazz:["Quincy Jones","Robert Glasper"],rnb:["Justin Bieber","The Weeknd","Bruno Mars","Jay Park"],
  rewatch:["La La Land","The Odyssey","The Office"],
+ jazzA:[{a:"Quincy Jones",t:"The Dude",f:"the-dude"},{a:"Robert Glasper Experiment",t:"Black Radio",f:"black-radio"}],
+ rnbA:[{a:"Bruno Mars",t:"The Romantic",f:"the-romantic"},{a:"Jay Park",t:"Everything You Wanted",f:"everything-you-wanted"},{a:"Jay Park",t:"The One You Wanted",f:"the-one-you-wanted"}],
  // q:1 이면 대사(따옴표), 아니면 한줄평. ko/en 다르면 [ko,en]
  movies:[{t:"Jerry Maguire",c:["실패, 성공, 사랑, 이별, 우정, 열정, 인간관계","Failure, success, love, breakup, friendship, passion, relationships"]},
    {t:"Interstellar",c:["놀란과 한스 짐머","Nolan and Hans Zimmer"]},
@@ -548,6 +556,7 @@ en:{eyebrow:"이력서에는 없는 이야기",title:"Life Beyond<br>the Resume"
  travel:["Travel","여행","I enjoy discovering new places and experiencing unfamiliar surroundings. I'll be sharing the landscapes, people, and memorable moments I encounter along the way."],
  daily:["Everyday Life","일상","I believe even ordinary days have moments worth remembering. This will be a collection of little things, personal interests, and moments from everyday life."]}};
 function slug(x){return x.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+function albums(a){return '<div class="albums">'+a.map(function(x){return '<div class="alb"><div class="acov"><img src="images/albums/'+x.f+'.jpg" alt="'+x.t+' album cover" loading="lazy"></div><b>'+x.t+'</b><span>'+x.a+'</span></div>'}).join("")+'</div>'}
 function chips(a){return '<div class="chips">'+a.map(function(x){return '<span class="chip">'+x+'</span>'}).join("")+'</div>'}
 function cmt(c,q){var t=(typeof c==="string")?c:(lang==="ko"?c[0]:c[1]);return '<p class="'+(q?'quote':'oneline')+'">'+(q?'“'+t.split(" / ").join('”<br>“')+'”':t)+'</p>'}
 function pimg(t){return '<div class="pimg"><span>'+t+'</span><img src="images/posters/'+slug(t)+'.jpg" alt="'+t+' poster" loading="lazy" onerror="this.remove()"></div>'}
@@ -564,7 +573,7 @@ function renderLife(sec){
   var l=L[lang],t=T[lang],g=function(x){return '<div class="glabel">'+x+'</div>'};
   var soon='<span class="soon">Coming Soon...</span>';
   var S={
-   music:lsec("music","01",l.music,g("Jazz")+chips(LC.jazz)+g("R&amp;B")+chips(LC.rnb)+g(l.repeat)+
+   music:lsec("music","01",l.music,g("Jazz")+chips(LC.jazz)+albums(LC.jazzA)+g("R&amp;B")+chips(LC.rnb)+albums(LC.rnbA)+g(l.repeat)+
      '<div class="album"><div class="cover slot"><img src="images/album.jpg" alt="" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">Coming Soon...</div></div><div><span>Justin Bieber</span><b>SWAG: LIVE FROM COACHELLA (WEEKEND II)</b><p>'+l.repeatP+'</p></div></div>'),
    film:lsec("film","02",l.film,g(l.dc)+'<div class="people"><div class="person"><small>'+l.dir+'</small><b>Christopher Nolan</b></div><div class="person"><small>'+l.comp+'</small><b>Hans Zimmer</b></div></div>'+
      g(l.fm)+posters(LC.movies)+g(l.ff)+posters(LC.films)+g(l.fs)+posters(LC.series)+g(l.fk)+kdrama(LC.kdrama)+g(l.rw)+chips(LC.rewatch)),
