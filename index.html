@@ -56,7 +56,7 @@ a{color:inherit}
 .stage{position:relative;margin-top:44px;background:var(--glacier);border-radius:36px;min-height:520px;overflow:hidden;display:flex;justify-content:center;align-items:flex-end;border:2px solid var(--navy)}
 .stage::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--ice);left:50%;top:60%;transform:translate(-50%,-50%)}
 .photo{position:relative;z-index:2;width:min(400px,72%);aspect-ratio:4/5;border-radius:200px 200px 0 0;overflow:hidden;background:var(--white);border:2px solid var(--navy);border-bottom:0}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
 .photo .ph{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;background:var(--white)}
 .photo.empty img{display:none}.photo.empty .ph{display:flex}
 .ph .mono{width:120px;height:120px;border-radius:50%;background:var(--lemon);border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900}
@@ -223,11 +223,19 @@ main>section{padding:88px 0 0}
 .slot img{width:100%;height:100%;object-fit:cover;display:block}
 .slot .ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:8px;font-size:12px;font-weight:700;color:var(--navy-70);background:repeating-linear-gradient(45deg,var(--white),var(--white) 10px,var(--ice) 10px,var(--ice) 20px)}
 .slot.empty img{display:none}.slot.empty .ph{display:flex}
-.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px}
-.poster{aspect-ratio:2/3;border:2px solid var(--navy);border-radius:16px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px;font-weight:800;font-size:16px;line-height:1.25;background:var(--ice);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
-.poster:nth-child(4n+1){background:var(--glacier)}.poster:nth-child(4n+2){background:var(--lemon)}.poster:nth-child(4n){background:var(--navy);color:var(--white)}
-.poster:hover{transform:translateY(-6px) rotate(-2deg)}
-.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:14px}
+.poster{display:flex;flex-direction:column;gap:8px}
+.poster b{font-size:16px;line-height:1.3}
+.pimg{aspect-ratio:2/3;border:2px solid var(--navy);border-radius:14px;position:relative;overflow:hidden;background:var(--ice);display:flex;align-items:flex-end;padding:12px;font-weight:800;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poster:hover .pimg,.kdrama:hover .pimg{transform:translateY(-6px) rotate(-2deg)}
+.quote{margin:0;font-size:14px;font-style:italic;color:var(--navy);background:var(--lemon);border-radius:10px;padding:6px 10px;line-height:1.5;align-self:flex-start}
+.oneline{margin:0;font-size:14px;color:var(--navy-70);line-height:1.5}
+.kdrama{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;border:2px solid var(--navy);border-radius:20px;padding:16px;background:var(--ice);max-width:680px}
+.kpics{display:grid;grid-template-columns:repeat(2,130px);gap:10px}
+.ktxt b{display:block;font-size:20px;line-height:1.35;margin-bottom:8px}
+.ktxt .oneline{font-size:18px;font-weight:800;color:var(--navy)}
+@media (max-width:560px){.posters{grid-template-columns:repeat(2,1fr)}.kdrama{grid-template-columns:1fr}.kpics{grid-template-columns:repeat(2,1fr)}}
 .people{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px}
 .person{background:var(--navy);color:var(--white);border-radius:20px;padding:20px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .person:hover{transform:rotate(-1.5deg) scale(1.02)}
@@ -242,10 +250,15 @@ main>section{padding:88px 0 0}
 .cam.film{background:var(--ice)}
 .cam h3{margin:0;font-size:24px;letter-spacing:-.02em}.cam h3 small{display:block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-70)}
 .cam p{margin:10px 0 0;max-width:680px}
-.shots{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.shots .slot{aspect-ratio:4/5;border:2px solid var(--navy);border-radius:14px;background:var(--white)}
+.shots{columns:3 220px;column-gap:10px}
+.shot{display:block;break-inside:avoid;margin:0 0 10px;border:2px solid var(--navy);border-radius:14px;overflow:hidden;background:var(--white);cursor:zoom-in;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.shot img{display:block;width:100%;height:auto}
+.shot:hover{transform:translateY(-4px) rotate(-1deg)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(19,41,75,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
 .soon{display:inline-block;background:var(--navy);color:var(--lemon);font-weight:800;border-radius:999px;padding:4px 16px;margin-bottom:14px;animation:wiggle 3.5s ease-in-out infinite}
-@media (max-width:760px){.lsec{grid-template-columns:1fr;gap:16px;padding:32px 0;margin-top:32px}.shots{grid-template-columns:repeat(3,1fr)}.album{grid-template-columns:96px 1fr}.people,.fit{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.lsec{grid-template-columns:1fr;gap:16px;padding:32px 0;margin-top:32px}.shots{columns:2}.album{grid-template-columns:96px 1fr}.people,.fit{grid-template-columns:1fr 1fr}}
 .tw{overflow-x:auto;margin:6px 0 14px}
 table{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--navy);border-radius:16px;overflow:hidden;font-size:15px;min-width:460px}
 th,td{text-align:left;padding:10px 14px;border-bottom:1.5px solid var(--line);vertical-align:top}
@@ -375,6 +388,7 @@ tr:nth-child(even) td{background:var(--ice)}
 </main>
 
 <main id="detail" class="wrap hidden"></main>
+<div id="lb" aria-hidden="true"><img alt=""></div>
 
 <script>
 var T={
@@ -495,15 +509,25 @@ var P={
 };
 
 var LC={jazz:["Quincy Jones","Robert Glasper"],rnb:["Justin Bieber","The Weeknd","Bruno Mars","Jay Park"],
- movies:["Jerry Maguire","Interstellar","A Star Is Born","La La Land"],
- series:["Breaking Bad","The Office","Peaky Blinders","The Hobbit Series","How to Train Your Dragon Series","Our Beloved Summer","Queen of Tears"],
- rewatch:["La La Land","The Odyssey","The Office"]};
+ rewatch:["La La Land","The Odyssey","The Office"],
+ // q:1 이면 대사(따옴표), 아니면 한줄평. ko/en 다르면 [ko,en]
+ movies:[{t:"Jerry Maguire",c:["실패, 성공, 사랑, 이별, 우정, 열정, 인간관계","Failure, success, love, breakup, friendship, passion, relationships"]},
+   {t:"Interstellar",c:["놀란과 한스 짐머","Nolan and Hans Zimmer"]},
+   {t:"A Star Is Born",c:["레이디 가가를 다시 보게 된 영화","The film that made me see Lady Gaga in a new light"]},
+   {t:"La La Land",q:1,c:"What do you mean you hate jazz?"},
+   {t:"The Odyssey",c:["놀란과 고란손의 오뒷세이아","Nolan and Göransson's Odyssey"]}],
+ films:[{t:"The Hobbit Trilogy",c:["최고의 3부작 중 하나","One of the best trilogies out there"]},
+   {t:"How to Train Your Dragon",c:["나도 드래곤 한 마리만 있었으면…","If only I had a dragon of my own…"]}],
+ series:[{t:"Breaking Bad",q:1,c:"Say my name. / You're Heisenberg. / You're goddamn right."},
+   {t:"The Office",q:1,c:"That's what she said!"},
+   {t:"Peaky Blinders",q:1,c:"In the bleak midwinter…"}],
+ kdrama:{items:[{t:"Our Beloved Summer",ko:"그 해 우리는"},{t:"Queen of Tears",ko:"눈물의 여왕"}],c:["K드라마의 힘","The power of K-dramas"]}};
 var L={
 ko:{eyebrow:"Life Beyond the Resume",title:"이력서에는<br>없는 이야기",intro:"일과 공부 외에도 제가 좋아하는 것들, 시간을 보내는 방식, 그리고 일상에서 발견하는 작은 즐거움들을 소개합니다.",
  music:["음악","Music","재즈와 R&amp;B를 즐겨 듣습니다. 최근에는 재즈를 많이 듣고 있으며, 다양한 아티스트의 음악과 라이브 공연 특유의 분위기를 좋아합니다."],
  repeat:"Currently on Repeat",repeatP:"스튜디오 앨범과는 다른 라이브 특유의 에너지와 현장감이 좋아서 요즘 자주 듣고 있습니다.",
  film:["영화와 드라마","Movies &amp; Series","좋아하는 영화와 시리즈를 반복해서 보는 편입니다. 특히 Christopher Nolan의 작품과 Hans Zimmer의 음악을 좋아합니다. 영상과 음악이 만나 만들어 내는 분위기와 몰입감을 중요하게 생각합니다."],
- fm:"Favorite Movies",fs:"Favorite Series &amp; Shows",dc:"Directors &amp; Composers",rw:"Always Worth Rewatching",dir:"Director",comp:"Film Composer",
+ fm:"Favorite Movies",ff:"Film Series",fs:"TV Series",fk:"K-Drama",dc:"Directors &amp; Composers",rw:"Always Worth Rewatching",dir:"Director",comp:"Film Composer",
  fit:["운동","Fitness","달리기와 웨이트 트레이닝을 즐깁니다. 러닝으로 머리를 비우기도 하고, 웨이트 트레이닝으로 꾸준히 몸을 관리하고 있습니다."],run:"러닝",wt:"웨이트 트레이닝",
  photo:["사진","Photography","사진은 일상과 여행에서 마주치는 순간들을 기록하는 방법입니다. 디지털카메라와 필름카메라를 모두 사용하고 있으며, 두 방식이 만들어 내는 서로 다른 분위기를 좋아합니다."],
  dig:"Digital Camera",digP:"제 첫 카메라입니다! 사용한 지 이제 거의 1년이 되어 갑니다. 처음에는 16–50mm 키트 렌즈로 시작했고, 이후 24–70mm F4 렌즈를 추가로 구입해 지금까지 정말 만족스럽게 사용하고 있습니다.",
@@ -515,7 +539,7 @@ en:{eyebrow:"이력서에는 없는 이야기",title:"Life Beyond<br>the Resume"
  music:["Music","음악","I enjoy listening to Jazz and R&amp;B. Lately, I've been spending more time with Jazz, especially appreciating the unique atmosphere of live performances."],
  repeat:"Currently on Repeat",repeatP:"I've been listening to this performance a lot lately. I love the energy and atmosphere that make it feel different from a studio recording.",
  film:["Movies &amp; Series","영화와 드라마","I'm someone who enjoys revisiting favorite films and series. I'm particularly drawn to Christopher Nolan's films and Hans Zimmer's soundtracks. I love how visuals and music come together to create an immersive experience."],
- fm:"Favorite Movies",fs:"Favorite Series &amp; Shows",dc:"Directors &amp; Composers",rw:"Always Worth Rewatching",dir:"Director",comp:"Film Composer",
+ fm:"Favorite Movies",ff:"Film Series",fs:"TV Series",fk:"K-Drama",dc:"Directors &amp; Composers",rw:"Always Worth Rewatching",dir:"Director",comp:"Film Composer",
  fit:["Fitness","운동","I enjoy running and weight training. Running helps me clear my mind, while weight training keeps me active and consistent."],run:"Running",wt:"Weight Training",
  photo:["Photography","사진","Photography is my way of capturing moments from everyday life and travels. I enjoy shooting with both digital and film cameras, each offering a different perspective and atmosphere."],
  dig:"Digital Camera",digP:"My very first camera! I've been using it for almost a year now. I started with the 16–50mm kit lens and later added a 24–70mm F4 lens. It's been a great companion, and I've really enjoyed using it.",
@@ -525,9 +549,16 @@ en:{eyebrow:"이력서에는 없는 이야기",title:"Life Beyond<br>the Resume"
  daily:["Everyday Life","일상","I believe even ordinary days have moments worth remembering. This will be a collection of little things, personal interests, and moments from everyday life."]}};
 function slug(x){return x.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function chips(a){return '<div class="chips">'+a.map(function(x){return '<span class="chip">'+x+'</span>'}).join("")+'</div>'}
-function posters(a){return '<div class="posters">'+a.map(function(x){return '<div class="poster">'+x+'<img src="images/posters/'+slug(x)+'.jpg" alt="'+x+'" onerror="this.remove()"></div>'}).join("")+'</div>'}
+function cmt(c,q){var t=(typeof c==="string")?c:(lang==="ko"?c[0]:c[1]);return '<p class="'+(q?'quote':'oneline')+'">'+(q?'“'+t.split(" / ").join('”<br>“')+'”':t)+'</p>'}
+function pimg(t){return '<div class="pimg"><span>'+t+'</span><img src="images/posters/'+slug(t)+'.jpg" alt="'+t+' poster" loading="lazy" onerror="this.remove()"></div>'}
+function posters(a){return '<div class="posters">'+a.map(function(x){return '<div class="poster">'+pimg(x.t)+'<b>'+x.t+'</b>'+cmt(x.c,x.q)+'</div>'}).join("")+'</div>'}
+function kdrama(k){return '<div class="kdrama"><div class="kpics">'+k.items.map(function(x){return pimg(x.t)}).join("")+'</div><div class="ktxt"><b>'+k.items.map(function(x){return lang==="ko"?x.ko:x.t}).join("<br>")+'</b>'+cmt(k.c)+'</div></div>'}
 function slot(src){return '<div class="slot"><img src="'+src+'" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">Coming Soon...</div></div>'}
-function shots(pre){var h="";for(var i=1;i<=5;i++)h+=slot("images/photos/"+pre+"-"+i+".jpg");return '<div class="shots">'+h+'</div>'}
+var NPH={digital:13,film:5};
+function shots(pre){var h="";for(var i=1;i<=NPH[pre];i++){var b="images/photos/"+pre+"-"+i;h+='<a class="shot" href="'+b+'.jpg" data-lb><img src="'+b+'-s.jpg" alt="" loading="lazy"></a>'}return '<div class="shots">'+h+'</div>'}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[data-lb]");if(a){e.preventDefault();var lb=document.getElementById("lb");lb.querySelector("img").src=a.getAttribute("href");lb.classList.add("on");return}
+ if(e.target.closest&&e.target.closest("#lb")){document.getElementById("lb").classList.remove("on")}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("lb").classList.remove("on")});
 function lsec(id,no,h,body){return '<section class="lsec" id="life-'+id+'"><div class="side"><span class="no">'+no+'</span><h2>'+h[0]+'</h2><small>'+h[1]+'</small></div><div class="main"><p>'+h[2]+'</p>'+body+'</div></section>'}
 function renderLife(sec){
   var l=L[lang],t=T[lang],g=function(x){return '<div class="glabel">'+x+'</div>'};
@@ -536,7 +567,7 @@ function renderLife(sec){
    music:lsec("music","01",l.music,g("Jazz")+chips(LC.jazz)+g("R&amp;B")+chips(LC.rnb)+g(l.repeat)+
      '<div class="album"><div class="cover slot"><img src="images/album.jpg" alt="" onerror="this.parentNode.classList.add(\'empty\')"><div class="ph">Coming Soon...</div></div><div><span>Justin Bieber</span><b>SWAG: LIVE FROM COACHELLA (WEEKEND II)</b><p>'+l.repeatP+'</p></div></div>'),
    film:lsec("film","02",l.film,g(l.dc)+'<div class="people"><div class="person"><small>'+l.dir+'</small><b>Christopher Nolan</b></div><div class="person"><small>'+l.comp+'</small><b>Hans Zimmer</b></div></div>'+
-     g(l.fm)+posters(LC.movies)+g(l.fs)+posters(LC.series)+g(l.rw)+chips(LC.rewatch)),
+     g(l.fm)+posters(LC.movies)+g(l.ff)+posters(LC.films)+g(l.fs)+posters(LC.series)+g(l.fk)+kdrama(LC.kdrama)+g(l.rw)+chips(LC.rewatch)),
    fitness:lsec("fitness","03",l.fit,'<div class="fit"><div><i>🏃</i>'+l.run+'</div><div><i>🏋️</i>'+l.wt+'</div></div>'),
    photo:lsec("photo","04",l.photo,'<div class="cam"><h3><small>'+l.dig+'</small>Nikon Z50 II</h3><p>'+l.digP+'</p>'+g(l.shots)+shots("digital")+'</div>'+
      '<div class="cam film"><h3><small>'+l.flm+'</small>Minolta X-700</h3><p>'+l.flmP+'</p>'+g(l.shots)+shots("film")+'</div>'),
